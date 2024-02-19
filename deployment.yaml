@@ -19,4 +19,4 @@ spec:
           image: 637423270289.dkr.ecr.ap-south-1.amazonaws.com/node:1
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 3000
