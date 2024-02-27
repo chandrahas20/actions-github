@@ -44,6 +44,8 @@ jobs:
       with:
         service: AppRunnerECRAccessRole	
         source-connection-arn: ${{ secrets.AWS_CONNECTION_SOURCE_ARN }}
+        repo: https://github.com/${{ github.repository }}
+        branch: ${{ github.ref }}
         image: ${{ steps.build-image.outputs.image }}  
         access-role-arn: ${{ secrets.ROLE_ARN }}
         region: ap-south-1
