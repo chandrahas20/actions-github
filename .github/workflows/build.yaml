@@ -43,7 +43,8 @@ jobs:
       uses: awslabs/amazon-app-runner-deploy@main        
       with:
         service: AppRunnerECRAccessRole	
-        image: ${{ steps.build-image.outputs.image }}                  
+        image: ${{ steps.build-image.outputs.image }}  
+        access-role-arn: ${{ secrets.ROLE_ARN }}
         region: ${{ secrets.AWS_REGION }}
         cpu : 1
         memory : 2
