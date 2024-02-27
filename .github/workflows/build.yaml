@@ -51,8 +51,9 @@ jobs:
         port: 8080
         wait-for-service-stability: true
       
-    - name: App Runner output
-      run: echo "App runner output ${{ steps.deploy-apprunner.outputs.service-id }}" 
+    - name: Deploy to AWS App Runner
+      run: aws apprunner start-deployment --service-arn arn:aws:apprunner:ap-south-1:637423270289:service/AppRunnerECRAccessRole/18e05bb4f23c488d9ff21e6e696e1c90
+ 
 
     # - name: Update kube config
     #   run: aws eks update-kubeconfig --name testing
