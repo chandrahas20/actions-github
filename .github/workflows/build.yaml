@@ -46,7 +46,7 @@ jobs:
         source-connection-arn: ${{ secrets.AWS_CONNECTION_SOURCE_ARN }}
         repo: https://github.com/${{ github.repository }}
         branch: ${{ github.ref }}
-        runtime: NODEJS_20
+        runtime: NODEJS_16
         image: ${{ steps.build-image.outputs.image }}  
         access-role-arn: ${{ secrets.ROLE_ARN }}
         region: ap-south-1
