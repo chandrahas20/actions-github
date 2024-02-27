@@ -38,18 +38,18 @@ jobs:
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-    - name: Deploy to App Runner
-      id: deploy-apprunner
-      uses: awslabs/amazon-app-runner-deploy@main        
-      with:
-        service: AppRunnerECRAccessRole	
-        image: ${{ steps.build-image.outputs.image }}  
-        access-role-arn: ${{ secrets.ROLE_ARN }}
-        region: ${{ secrets.AWS_REGION }}
-        cpu : 1
-        memory : 2
-        port: 8080
-        wait-for-service-stability: true
+    # - name: Deploy to App Runner
+    #   id: deploy-apprunner
+    #   uses: awslabs/amazon-app-runner-deploy@main        
+    #   with:
+    #     service: AppRunnerECRAccessRole	
+    #     image: ${{ steps.build-image.outputs.image }}  
+    #     access-role-arn: ${{ secrets.ROLE_ARN }}
+    #     region: ${{ secrets.AWS_REGION }}
+    #     cpu : 1
+    #     memory : 2
+    #     port: 8080
+    #     wait-for-service-stability: true
       
     - name: Deploy to AWS App Runner
       run: aws apprunner start-deployment --service-arn arn:aws:apprunner:ap-south-1:637423270289:service/AppRunnerECRAccessRole/18e05bb4f23c488d9ff21e6e696e1c90
