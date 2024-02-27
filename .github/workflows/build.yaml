@@ -46,7 +46,7 @@ jobs:
         source-connection-arn: ${{ secrets.AWS_CONNECTION_SOURCE_ARN }}
         image: ${{ steps.build-image.outputs.image }}  
         access-role-arn: ${{ secrets.ROLE_ARN }}
-        region: ${{ secrets.AWS_REGION }}
+        region: ap-south-1
         cpu : 1
         memory : 2
         port: 8080
