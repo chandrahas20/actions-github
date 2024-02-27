@@ -43,6 +43,7 @@ jobs:
       uses: awslabs/amazon-app-runner-deploy@main        
       with:
         service: AppRunnerECRAccessRole	
+        source-connection-arn: ${{ secrets.AWS_CONNECTION_SOURCE_ARN }}
         image: ${{ steps.build-image.outputs.image }}  
         access-role-arn: ${{ secrets.ROLE_ARN }}
         region: ${{ secrets.AWS_REGION }}
