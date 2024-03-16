@@ -1,10 +1,13 @@
-name: Practice of on
-on: [push]
-
-
+name: Example workflow using Snyk
+on: push
 jobs:
-  run-shell-commedn:
+  security:
     runs-on: ubuntu-latest
     steps:
-      - name: echo a string
-        run: echo "Hello World"
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
